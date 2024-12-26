@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Starting build phase..."
+      - echo "Current directory content:"
+      - ls -la
+  
+  build:
+    commands:
+      - echo "Copying files to build directory..."
+      - mkdir -p build
+      - cp index.html build/
+      - echo "Build completed on $(date)"
+  
+  post_build:
+    commands:
+      - echo "Build finished successfully!"
+
+artifacts:
+  files:
+    - build/*
+  name: web-build
