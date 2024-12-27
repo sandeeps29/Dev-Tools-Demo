@@ -3,6 +3,12 @@ os: linux
 files:
   - source: /build
     destination: /var/www/html/
+    permissions:
+      - object: /var/www/html
+        pattern: "**"
+        owner: apache
+        group: apache
+        mode: 755
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh

@@ -4,21 +4,21 @@ phases:
   pre_build:
     commands:
       - echo "Starting build phase..."
-      - echo "Current directory content:"
-      - ls -la
   
   build:
     commands:
       - echo "Copying files to build directory..."
       - mkdir -p build
       - cp index.html build/
-      - echo "Build completed on $(date)"
-  
+      
   post_build:
     commands:
-      - echo "Build finished successfully!"
+      - echo "Preparing artifacts for CodeDeploy..."
 
 artifacts:
   files:
-    - build/*
-  name: web-build
+    - appspec.yml
+    - scripts/**/*
+    - build/**/*
+  base-directory: '.'
+  discard-paths: no
