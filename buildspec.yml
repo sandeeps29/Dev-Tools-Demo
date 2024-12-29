@@ -10,6 +10,8 @@ phases:
       - echo "Copying files to build directory..."
       - mkdir -p build
       - cp index.html build/
+      - cp style.css build/
+      - cp script.js build/
       
   post_build:
     commands:
